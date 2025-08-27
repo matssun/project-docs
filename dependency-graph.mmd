@@ -1,0 +1,158 @@
+graph TD
+    %% Module Dependency Graph
+    %% Auto-generated - do not edit manually
+    %% Generated: 2025-08-12T21:28:48.480930+00:00
+
+    %% Node Definitions
+    %% Layer 0
+    accounting_mcp[accounting_mcp]:::foundation
+    accounting_service[accounting_service]:::foundation
+    client_base[client_base]:::foundation
+    development_orchestration[development_orchestration]:::foundation
+    door_access[door_access]:::foundation
+    entsoe_price_service[entsoe_price_service]:::foundation
+    entsoe_xsd[entsoe_xsd]:::foundation
+    federated_services[federated_services]:::foundation
+    monitoring_infrastructure[monitoring_infrastructure]:::foundation
+    network_orchestration[network_orchestration]:::foundation
+    process_orchestration[process_orchestration]:::foundation
+    project-planning-python[project-planning-python]:::foundation
+    project-planning-ui[project-planning-ui]:::foundation
+    security_authentication[security_authentication]:::foundation
+    security_authorization[security_authorization]:::foundation
+    security_cryptography[security_cryptography]:::foundation
+    security_identity_framework[security_identity_framework]:::foundation
+    security_monitoring[security_monitoring]:::foundation
+    security_validation[security_validation]:::foundation
+    shared_testing[shared_testing]:::foundation
+    xmlschema-stubs[xmlschema-stubs]:::foundation
+
+    %% Layer 1
+    accounting[accounting]:::core
+    entsoe_client[entsoe_client]:::core
+    network_client[network_client]:::core
+    security_core_interfaces[security_core_interfaces]:::core
+
+    %% Layer 2
+    accounting_interfaces[accounting_interfaces]:::infrastructure
+    core_requests[core_requests]:::infrastructure
+    service_infrastructure[service_infrastructure]:::infrastructure
+
+    %% Layer 3
+    config_management[config_management]:::domain
+    persistence_infrastructure[persistence_infrastructure]:::domain
+
+    %% Layer 4
+    validation[validation]:::domain
+
+    %% Layer 5
+    error_handling[error_handling]:::domain
+
+    %% Layer 6
+    core_data_structures[core_data_structures]:::domain
+    service_registry[service_registry]:::domain
+
+    %% Layer 7
+    core_interfaces[core_interfaces]:::domain
+
+    %% Dependencies
+
+    accounting --> accounting_interfaces
+    accounting_mcp --> accounting_interfaces
+    accounting_service --> accounting_interfaces
+    accounting --> error_handling
+    client_base --> error_handling
+    config_management --> error_handling
+    core_requests --> error_handling
+    development_orchestration --> error_handling
+    entsoe_client --> error_handling
+    entsoe_price_service --> error_handling
+    network_client --> error_handling
+    network_orchestration --> error_handling
+    persistence_infrastructure --> error_handling
+    process_orchestration --> error_handling
+    security_authentication --> error_handling
+    security_identity_framework --> error_handling
+    service_infrastructure --> error_handling
+    validation --> error_handling
+    accounting_mcp --> config_management
+    client_base --> config_management
+    development_orchestration --> config_management
+    entsoe_client --> config_management
+    entsoe_price_service --> config_management
+    security_monitoring --> config_management
+    service_infrastructure --> config_management
+    accounting_service --> accounting
+    client_base --> core_interfaces
+    config_management --> core_interfaces
+    core_data_structures --> core_interfaces
+    core_requests --> core_interfaces
+    development_orchestration --> core_interfaces
+    entsoe_client --> core_interfaces
+    entsoe_price_service --> core_interfaces
+    error_handling --> core_interfaces
+    federated_services --> core_interfaces
+    network_client --> core_interfaces
+    network_orchestration --> core_interfaces
+    persistence_infrastructure --> core_interfaces
+    process_orchestration --> core_interfaces
+    security_authentication --> core_interfaces
+    security_authorization --> core_interfaces
+    security_core_interfaces --> core_interfaces
+    security_identity_framework --> core_interfaces
+    security_monitoring --> core_interfaces
+    service_infrastructure --> core_interfaces
+    shared_testing --> core_interfaces
+    validation --> core_interfaces
+    client_base --> service_infrastructure
+    development_orchestration --> service_infrastructure
+    entsoe_client --> service_infrastructure
+    entsoe_price_service --> service_infrastructure
+    network_client --> service_infrastructure
+    network_orchestration --> service_infrastructure
+    security_authentication --> service_infrastructure
+    security_authorization --> service_infrastructure
+    security_identity_framework --> service_infrastructure
+    config_management --> validation
+    development_orchestration --> validation
+    entsoe_client --> validation
+    persistence_infrastructure --> validation
+    process_orchestration --> validation
+    security_authentication --> validation
+    security_authorization --> validation
+    security_identity_framework --> validation
+    service_infrastructure --> validation
+    config_management --> core_data_structures
+    core_requests --> core_data_structures
+    error_handling --> core_data_structures
+    service_infrastructure --> core_data_structures
+    validation --> core_data_structures
+    development_orchestration --> persistence_infrastructure
+    security_authentication --> persistence_infrastructure
+    security_identity_framework --> persistence_infrastructure
+    service_infrastructure --> persistence_infrastructure
+    development_orchestration --> service_registry
+    error_handling --> service_registry
+    persistence_infrastructure --> service_registry
+    entsoe_client --> core_requests
+    entsoe_price_service --> entsoe_client
+    network_orchestration --> network_client
+    security_authentication --> security_core_interfaces
+    security_authorization --> security_core_interfaces
+    security_identity_framework --> security_core_interfaces
+    security_monitoring --> security_core_interfaces
+
+    %% Styling
+    classDef foundation fill:#e8f5e8,stroke:#4caf50,stroke-width:3px,color:#1b5e20
+    classDef core fill:#e3f2fd,stroke:#2196f3,stroke-width:2px,color:#0d47a1
+    classDef infrastructure fill:#fff3e0,stroke:#ff9800,stroke-width:2px,color:#e65100
+    classDef domain fill:#f3e5f5,stroke:#9c27b0,stroke-width:2px,color:#4a148c
+    classDef default fill:#f5f5f5,stroke:#757575,stroke-width:1px,color:#424242
+
+    %% Legend
+    subgraph Legend
+        L0["🏗️ Foundation (Layer 0)"]:::foundation
+        L1["⚙️ Core (Layer 1)"]:::core
+        L2["🔧 Infrastructure (Layer 2)"]:::infrastructure
+        L3["🏢 Domain (Layer 3+)"]:::domain
+    end
